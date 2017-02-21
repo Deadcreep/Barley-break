@@ -1,0 +1,12 @@
+c:\users\kirahvi\documents\visual studio 2013\Projects\Tag\Tag\bin\Debug\Tag.exe.config
+C:\Users\Kirahvi\Documents\Visual Studio 2013\Projects\Tag\Tag\obj\Debug\Tag.csprojResolveAssemblyReference.cache
+C:\Users\Kirahvi\Documents\Visual Studio 2013\Projects\Tag\Tag\bin\Debug\Tag.exe
+C:\Users\Kirahvi\Documents\Visual Studio 2013\Projects\Tag\Tag\bin\Debug\Tag.pdb
+C:\Users\Kirahvi\Documents\Visual Studio 2013\Projects\Tag\Tag\obj\Debug\Tag.exe
+C:\Users\Kirahvi\Documents\Visual Studio 2013\Projects\Tag\Tag\obj\Debug\Tag.pdb
+C:\Users\Kirahvi\Documents\GitHub\Barley-break\Tag\bin\Debug\Tag.exe.config
+C:\Users\Kirahvi\Documents\GitHub\Barley-break\Tag\obj\Debug\Tag.exe
+C:\Users\Kirahvi\Documents\GitHub\Barley-break\Tag\obj\Debug\Tag.pdb
+C:\Users\Kirahvi\Documents\GitHub\Barley-break\Tag\bin\Debug\Tag.exe
+C:\Users\Kirahvi\Documents\GitHub\Barley-break\Tag\bin\Debug\Tag.pdb
+C:\Users\Kirahvi\Documents\GitHub\Barley-break\Tag\obj\Debug\Tag.csprojResolveAssemblyReference.cache
