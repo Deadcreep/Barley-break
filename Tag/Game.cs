@@ -10,40 +10,40 @@ namespace Tag
     struct Coordinate
     {
         public int x { get; private set; }
-        public int y {get; private set;}
+        public int y { get; private set; }
         public Coordinate(int x = 0, int y = 0)
         {
-        this.x = x;
-        this.y = y;
+            this.x = x;
+            this.y = y;
         }
     }
-    
+
 
     class Game
     {
-        public readonly int[,] knuckles;
+        int[,] knuckles;
         public int sideLength { get; private set; }
         Dictionary<int, Coordinate> dictionaty = new Dictionary<int, Coordinate>();
 
         public Game(params int[] list)
         {
             if (Math.Pow(Math.Sqrt(list.Length), 2) != list.Length)
-                throw new ArgumentException ("Wrong number of knuckles");            
+                throw new ArgumentException("Wrong number of knuckles");
             sideLength = Convert.ToInt32(Math.Sqrt(list.Length));
             knuckles = new int[sideLength, sideLength];
-            FillField(list);            
+            FillField(list);
         }
 
-        protected virtual void FillField( int[] values )
-        {   
+        protected virtual void FillField(int[] values)
+        {
             int i = 0;
             for (int x = 0; x < sideLength; x++)
                 for (int y = 0; y < sideLength; y++)
                 {
                     knuckles[x, y] = values[i];
-                    dictionaty.Add(values[i], new Coordinate (x, y));
+                    dictionaty.Add(values[i], new Coordinate(x, y));
                     i++;
-                }            
+                }
         }
 
 
@@ -67,7 +67,7 @@ namespace Tag
         {
             if (dictionaty.ContainsKey(value) == false)
                 throw new ArgumentException("Nonexistent knuckle");
-            return dictionaty[value];            
+            return dictionaty[value];
         }
 
         public void Shift(int value)
