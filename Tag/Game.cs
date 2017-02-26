@@ -9,39 +9,41 @@ namespace Tag
 
     struct Coordinate
     {
-        public int X { get; set; }
-        public int Y { get; set; }
+        public int x { get; private set; }
+        public int y {get; private set;}
+        public Coordinate(int x = 0, int y = 0)
+        {
+        this.x = x;
+        this.y = y;
+        }
     }
+    
 
     class Game
     {
-        int[,] coordinates;
-        public int Size { get; private set; }
+        public readonly int[,] knuckles;
+        public int sideLength { get; private set; }
+        Dictionary<int, Coordinate> dictionaty = new Dictionary<int, Coordinate>();
 
-        public Game(int size)
+        public Game(params int[] list)
         {
-            this.Size = size;
-            FillField(size);
+            if (Math.Pow(Math.Sqrt(list.Length), 2) != list.Length)
+                throw new ArgumentException ("Wrong number of knuckles");            
+            sideLength = Convert.ToInt32(Math.Sqrt(list.Length));
+            knuckles = new int[sideLength, sideLength];
+            FillField(list);            
         }
 
-        private void FillField(int size)
-        {
-
-            coordinates = new int[size, size];
-            int arraySize = size * size;
-            int[] array = new int[arraySize];
-            for (int j = 0; j < arraySize; j++)
-            {
-                array[j] = j;
-            }
-            new Random().Shuffle<int>(ref array);
+        protected virtual void FillField( int[] values )
+        {   
             int i = 0;
-            for (int x = 0; x < size; x++)
-                for (int y = 0; y < size; y++)
+            for (int x = 0; x < sideLength; x++)
+                for (int y = 0; y < sideLength; y++)
                 {
-                    coordinates[x, y] = array[i] == 16 ? 0 : array[i];
+                    knuckles[x, y] = values[i];
+                    dictionaty.Add(values[i], new Coordinate (x, y));
                     i++;
-                }
+                }            
         }
 
 
@@ -49,32 +51,23 @@ namespace Tag
         {
             get
             {
-                if (x >= Size || y >= Size)
+                if (x >= sideLength || y >= sideLength)
                 {
                     throw new IndexOutOfRangeException();
                 }
-                return coordinates[x, y];
+                return knuckles[x, y];
             }
             set
             {
-                coordinates[x, y] = value;
+                knuckles[x, y] = value;
             }
         }
 
         public Coordinate GetLocation(int value)
         {
-            for (int x = 0; x < Size; x++)
-                for (int y = 0; y < Size; y++)
-                    if (value == coordinates[x, y])
-                    {
-                        return new Coordinate
-                        {
-                            X = x,
-                            Y = y
-                        };
-                    }
-
-            throw new ArgumentException("Value does not exist");
+            if (dictionaty.ContainsKey(value) == false)
+                throw new ArgumentException("Nonexistent knuckle");
+            return dictionaty[value];            
         }
 
         public void Shift(int value)
@@ -83,20 +76,29 @@ namespace Tag
             {
                 throw new ArgumentException("Incorrect value");
             }
+
             var source = GetLocation(value);
             var dest = GetLocation(0);
-            if (Math.Abs(source.X + source.Y - dest.X - dest.Y) != 1)
+            if (Math.Abs(source.x + source.y - dest.x - dest.y) != 1)
+            {
                 throw new Exception("Can't move " + value);
-            coordinates[source.X, source.Y] = 0;
-            coordinates[dest.X, dest.Y] = value;
+            }
+
+            knuckles[source.x, source.y] = 0;
+            knuckles[dest.x, dest.y] = value;
+
+            var temp = dictionaty[0];
+            dictionaty[0] = dictionaty[value];
+            dictionaty[value] = temp;
         }
+
         public bool IsCompleted()
         {
             int val = 0;
-            for (int x = 0; x < Size; x++)
-                for (int y = 0; y < Size; y++)
+            for (int x = 0; x < sideLength; x++)
+                for (int y = 0; y < sideLength; y++)
                 {
-                    if (coordinates[x, y] != val)
+                    if (knuckles[x, y] != val)
                         return false;
                     val++;
                 }

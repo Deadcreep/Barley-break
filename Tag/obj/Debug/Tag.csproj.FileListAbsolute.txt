@@ -10,3 +10,9 @@ C:\Users\Kirahvi\Documents\GitHub\Barley-break\Tag\obj\Debug\Tag.pdb
 C:\Users\Kirahvi\Documents\GitHub\Barley-break\Tag\bin\Debug\Tag.exe
 C:\Users\Kirahvi\Documents\GitHub\Barley-break\Tag\bin\Debug\Tag.pdb
 C:\Users\Kirahvi\Documents\GitHub\Barley-break\Tag\obj\Debug\Tag.csprojResolveAssemblyReference.cache
+C:\Users\Nurgle\Documents\GitHub\Barley-break\Tag\bin\Debug\Tag.exe.config
+C:\Users\Nurgle\Documents\GitHub\Barley-break\Tag\obj\Debug\Tag.exe
+C:\Users\Nurgle\Documents\GitHub\Barley-break\Tag\obj\Debug\Tag.pdb
+C:\Users\Nurgle\Documents\GitHub\Barley-break\Tag\obj\Debug\Tag.csprojResolveAssemblyReference.cache
+C:\Users\Nurgle\Documents\GitHub\Barley-break\Tag\bin\Debug\Tag.exe
+C:\Users\Nurgle\Documents\GitHub\Barley-break\Tag\bin\Debug\Tag.pdb

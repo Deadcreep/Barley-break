@@ -13,9 +13,9 @@ namespace Tag
             
             int a = 0;
             int b = 0;
-            for (a = 0; a < game.Size; a++)
+            for (a = 0; a < game.sideLength; a++)
             {
-                for (b = 0; b < 4; b++)
+                for (b = 0; b < game.sideLength; b++)
                     Console.Write(game[a, b] + "\t");
                 Console.WriteLine();
                 Console.WriteLine();
