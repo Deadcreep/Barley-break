@@ -21,17 +21,28 @@ namespace Tag
 
     class Game
     {
-        int[,] knuckles;
+        protected int[,] knuckles;
         public int sideLength { get; private set; }
         Dictionary<int, Coordinate> dictionaty = new Dictionary<int, Coordinate>();
 
         public Game(params int[] list)
-        {
-            if (Math.Pow(Math.Sqrt(list.Length), 2) != list.Length)
-                throw new ArgumentException("Wrong number of knuckles");
+        {            
+            Validate(list);           
             sideLength = Convert.ToInt32(Math.Sqrt(list.Length));
             knuckles = new int[sideLength, sideLength];
             FillField(list);
+        }
+
+        private void Validate(int[] list)
+        {
+            if (Math.Pow(Math.Sqrt(list.Length), 2) != list.Length)
+                throw new ArgumentException("Wrong number of knuckles");
+
+            for (int i = 0; i < list.Length; i++)
+            {
+                if (!list.Contains(i))
+                    throw new ArgumentException("Wrong nuckles");
+            }
         }
 
         protected virtual void FillField(int[] values)
@@ -70,7 +81,7 @@ namespace Tag
             return dictionaty[value];
         }
 
-        public void Shift(int value)
+        public virtual void Shift(int value)
         {
             if (value == 0)
             {
@@ -90,20 +101,7 @@ namespace Tag
             var temp = dictionaty[0];
             dictionaty[0] = dictionaty[value];
             dictionaty[value] = temp;
-        }
-
-        public bool IsCompleted()
-        {
-            int val = 0;
-            for (int x = 0; x < sideLength; x++)
-                for (int y = 0; y < sideLength; y++)
-                {
-                    if (knuckles[x, y] != val)
-                        return false;
-                    val++;
-                }
-            return true;
-        }
+        }       
     }
 }
 

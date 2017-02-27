@@ -8,7 +8,7 @@ namespace Tag
 {
     static class Printer
     {
-        public static void PrintBoard(Game game)
+        public static void PrintBoard(Game3 game)
         {
             
             int a = 0;
@@ -22,6 +22,11 @@ namespace Tag
             }
             Console.WriteLine();
             Console.WriteLine();
+        }
+        public static void PrintHistory(Game3 game)
+        {
+            for (int i = 0; i < game.history.Count; i++)
+                Console.WriteLine("Knuckle " + game.history[i].value + "\t coordinate: " + game.history[i].coordinates.x + " : " + game.history[i].coordinates.y);
         }
 
     }

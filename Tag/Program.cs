@@ -10,25 +10,32 @@ namespace Tag
     {
         static void Main(string[] args)
         {
-            
-            Game game = new Game(0, 1, 2, 3, 4, 5, 6, 7, 8);
-
-            Printer.PrintBoard(game);
-
-            while (!game.IsCompleted())
+            try
             {
-                try
+                Game3 game = new Game3(0, 1, 2, 3, 4, 5, 6, 7, 8);
+
+                Printer.PrintBoard(game);
+
+                while (!game.IsCompleted())
                 {
-                    string s = Console.ReadLine();
-                    game.Shift(int.Parse(s));
-                    Console.Clear();
-                    Console.SetCursorPosition(0, 0);
-                    Printer.PrintBoard(game);
+                    try
+                    {
+                        string s = Console.ReadLine();
+                        game.Shift(int.Parse(s));
+                        Console.Clear();
+                        Console.SetCursorPosition(0, 0);
+                        Printer.PrintBoard(game);
+                        Printer.PrintHistory(game);
+                    }
+                    catch (Exception e)
+                    {
+                        Console.WriteLine(e.Message);
+                    }
                 }
-                catch (Exception e)
-                {
-                    Console.WriteLine(e.Message);
-                } 
+            }
+            catch (Exception e1)
+            {
+                Console.WriteLine(e1.Message);
             }
         }       
     }
