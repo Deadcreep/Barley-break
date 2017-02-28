@@ -23,7 +23,7 @@ namespace Tag
     {
         protected int[,] knuckles;
         public int sideLength { get; private set; }
-        Dictionary<int, Coordinate> dictionaty = new Dictionary<int, Coordinate>();
+        protected Dictionary<int, Coordinate> dictionaty = new Dictionary<int, Coordinate>();
 
         public Game(params int[] list)
         {            

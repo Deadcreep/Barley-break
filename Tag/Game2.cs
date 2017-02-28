@@ -20,14 +20,19 @@ namespace Tag
 
         public bool IsCompleted()
         {
-            int val = 0;
+            int max = sideLength - 1;
+            int val = 1;
             for (int x = 0; x < sideLength; x++)
                 for (int y = 0; y < sideLength; y++)
                 {
+                    if (x == max && y == max && knuckles[x, y] == 0)
+                        return true;
+
                     if (knuckles[x, y] != val)
                         return false;
                     val++;
                 }
+
             return true;
         }
     }
