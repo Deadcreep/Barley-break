@@ -12,7 +12,7 @@ namespace Tag
         {
             try
             {
-                Game3 game = new Game3( 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 0);
+                Game3 game = new Game3(1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 0);
                 //Game3 CSVGame = Reader.FromCSV("input.csv");
                 //Printer.PrintBoard(CSVGame);
 
@@ -39,6 +39,6 @@ namespace Tag
             {
                 Console.WriteLine(e1.Message);
             }
-        }       
+        }
     }
 }

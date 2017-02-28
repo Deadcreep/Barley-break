@@ -26,8 +26,8 @@ namespace Tag
         protected Dictionary<int, Coordinate> dictionaty = new Dictionary<int, Coordinate>();
 
         public Game(params int[] list)
-        {            
-            Validate(list);           
+        {
+            Validate(list);
             sideLength = Convert.ToInt32(Math.Sqrt(list.Length));
             knuckles = new int[sideLength, sideLength];
             FillField(list);
@@ -101,7 +101,7 @@ namespace Tag
             var temp = dictionaty[0];
             dictionaty[0] = dictionaty[value];
             dictionaty[value] = temp;
-        }       
+        }
     }
 }
 

@@ -15,7 +15,7 @@ namespace Tag
         }
 
         public Game2(params int[] list) : base(list)
-        {            
+        {
         }
 
         public bool IsCompleted()

@@ -10,7 +10,7 @@ namespace Tag
     {
         public static void PrintBoard(Game3 game)
         {
-            
+
             int a = 0;
             int b = 0;
             for (a = 0; a < game.sideLength; a++)
