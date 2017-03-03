@@ -16,19 +16,49 @@ namespace Tag
                 //Game3 CSVGame = Reader.FromCSV("input.csv");
                 //Printer.PrintBoard(CSVGame);
 
+                //Printer.PrintBoard(game);      
+                Printer.PrintMenu();
                 Printer.PrintBoard(game);
-                Console.WriteLine(game.IsCompleted());
                 while (!game.IsCompleted())
                 {
                     try
                     {
+                        bool tempFlag = true;
                         string s = Console.ReadLine();
-                        game.Shift(int.Parse(s));
-                        Console.Clear();
-                        Console.SetCursorPosition(0, 0);
-                        Printer.PrintBoard(game);
-                        Printer.PrintHistory(game);
+                        switch (s)
+                        {
+                            case "m":
+                                while (!game.IsCompleted())
+                                {
+                                    Printer.RefreshScreen(game);
+                                    Console.WriteLine("Make steps, to exit press q");
+                                    var temp = Console.ReadLine();
+                                    if (temp == "q")
+                                    { 
+                                        Printer.RefreshScreen(game);
+                                        break;
+                                    }
+                                    game.Shift(int.Parse(temp));
+                                    Printer.RefreshScreen(game);
+                                }
+                                break;
+                            case "c":
+                                game.CancelStep();
+                                Printer.RefreshScreen(game);
+                                break;
+                            case "h":
+                                Printer.PrintHistory(game);
+                                break;
+                            case "q":
+                                tempFlag = false;
+                                break;
+
+                        }
+                        
+                        if (tempFlag == false)
+                            break;
                     }
+
                     catch (Exception e)
                     {
                         Console.WriteLine(e.Message);
