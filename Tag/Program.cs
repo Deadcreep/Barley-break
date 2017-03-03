@@ -27,21 +27,21 @@ namespace Tag
                         string s = Console.ReadLine();
                         switch (s)
                         {
-                            case "m":
-                                while (!game.IsCompleted())
-                                {
-                                    Printer.RefreshScreen(game);
-                                    Console.WriteLine("Make steps, to exit press q");
-                                    var temp = Console.ReadLine();
-                                    if (temp == "q")
-                                    { 
-                                        Printer.RefreshScreen(game);
-                                        break;
-                                    }
-                                    game.Shift(int.Parse(temp));
-                                    Printer.RefreshScreen(game);
-                                }
-                                break;
+                            //case "m":
+                            //    while (!game.IsCompleted())
+                            //    {
+                            //        Printer.RefreshScreen(game);
+                            //        Console.WriteLine("Make steps, to exit press q");
+                            //        var temp = Console.ReadLine();
+                            //        if (temp == "q")
+                            //        { 
+                            //            Printer.RefreshScreen(game);
+                            //        break;
+                            //        }
+                            //        game.Shift(int.Parse(temp));
+                            //        Printer.RefreshScreen(game);
+                            //    }
+                            //    break;
                             case "c":
                                 game.CancelStep();
                                 Printer.RefreshScreen(game);
@@ -52,9 +52,13 @@ namespace Tag
                             case "q":
                                 tempFlag = false;
                                 break;
-
+                            default:
+                                game.Shift(int.Parse(s));
+                                Printer.RefreshScreen(game);
+                                break;
                         }
                         
+
                         if (tempFlag == false)
                             break;
                     }

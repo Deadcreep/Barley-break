@@ -35,7 +35,7 @@ namespace Tag
         public static void PrintMenu()
         {
             Console.WriteLine("Select:" + Environment.NewLine
-                            + "m: Make step" + Environment.NewLine
+                           // + "m: Make step" + Environment.NewLine
                             + "c: Cancel step" + Environment.NewLine
                             + "h: Print history" + Environment.NewLine
                             + "q: Quit" + Environment.NewLine);
