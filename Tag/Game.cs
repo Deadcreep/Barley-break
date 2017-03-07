@@ -57,7 +57,6 @@ namespace Tag
                 }
         }
 
-
         public int this[int x, int y]
         {
             get
@@ -67,10 +66,6 @@ namespace Tag
                     throw new IndexOutOfRangeException();
                 }
                 return knuckles[x, y];
-            }
-            set
-            {
-                knuckles[x, y] = value;
             }
         }
 

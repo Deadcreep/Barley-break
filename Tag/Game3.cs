@@ -30,7 +30,10 @@ namespace Tag
         {
             history.Clear();
             base.Randomize();
+            position = -1;
         }
+
+       
         
         public override void Shift(int value)
         {
