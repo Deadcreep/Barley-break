@@ -36,8 +36,10 @@ namespace Tag
         {
             Console.WriteLine("Select:" + Environment.NewLine
                            // + "m: Make step" + Environment.NewLine
-                            + "c: Cancel step" + Environment.NewLine
+                            + "u: Undo" + Environment.NewLine
+                            + "y: Redo" + Environment.NewLine
                             + "h: Print history" + Environment.NewLine
+                            + "r: Shuffle the field" + Environment.NewLine
                             + "q: Quit" + Environment.NewLine);
         }
 

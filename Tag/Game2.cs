@@ -8,15 +8,31 @@ namespace Tag
 {
     class Game2 : Game
     {
-        protected override void FillField(int[] values)
-        {
-            new Random().Shuffle<int>(ref values);
-            base.FillField(values);
-        }
-
+       
         public Game2(params int[] list) : base(list)
         {
+
         }
+
+        public virtual void Randomize()
+        {
+            new Random().Shuffle<int>(ref knuckles);
+            for (int x = 0; x < this.sideLength; x++)
+            {
+                for (int y = 0; y < this.sideLength; y++)
+                {
+                    var temp = knuckles[x, y];
+                    dictionaty[temp] = new Coordinate(x, y);
+                }
+            }
+        }
+
+        protected override void FillField(int[] values)
+        {
+            base.FillField(values);
+            Randomize();
+        }
+
 
         public bool IsCompleted()
         {

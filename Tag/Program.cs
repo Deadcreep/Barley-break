@@ -12,7 +12,7 @@ namespace Tag
         {
             try
             {
-                Game3 game = new Game3(1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 0);
+                Game3 game = new Game3(1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 0, 15);
                 //Game3 CSVGame = Reader.FromCSV("input.csv");
                 //Printer.PrintBoard(CSVGame);
 
@@ -27,23 +27,12 @@ namespace Tag
                         string s = Console.ReadLine();
                         switch (s)
                         {
-                            //case "m":
-                            //    while (!game.IsCompleted())
-                            //    {
-                            //        Printer.RefreshScreen(game);
-                            //        Console.WriteLine("Make steps, to exit press q");
-                            //        var temp = Console.ReadLine();
-                            //        if (temp == "q")
-                            //        { 
-                            //            Printer.RefreshScreen(game);
-                            //        break;
-                            //        }
-                            //        game.Shift(int.Parse(temp));
-                            //        Printer.RefreshScreen(game);
-                            //    }
-                            //    break;
-                            case "c":
-                                game.CancelStep();
+                            case "u":
+                                game.Undo();
+                                Printer.RefreshScreen(game);
+                                break;
+                            case "y":
+                                game.Redo();
                                 Printer.RefreshScreen(game);
                                 break;
                             case "h":
@@ -52,13 +41,16 @@ namespace Tag
                             case "q":
                                 tempFlag = false;
                                 break;
+                            case "r":
+                                game.Randomize();
+                                Printer.RefreshScreen(game);
+                                break;
                             default:
                                 game.Shift(int.Parse(s));
                                 Printer.RefreshScreen(game);
                                 break;
                         }
                         
-
                         if (tempFlag == false)
                             break;
                     }
