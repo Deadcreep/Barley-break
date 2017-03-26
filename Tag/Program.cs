@@ -16,7 +16,6 @@ namespace Tag
                 ConsoleuUI c = new ConsoleuUI(game);
                 //Game3 CSVGame = Reader.FromCSV("input.csv");
                 //Printer.PrintBoard(CSVGame);
-
                 //Printer.PrintBoard(game);      
                 c.Play();
             }

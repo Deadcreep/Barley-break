@@ -16,15 +16,15 @@ namespace Tag
             
         }
 
-        public  void PrintBoard( )
+        private void PrintBoard( )
         {
 
             int a = 0;
             int b = 0;
 
-            for (a = 0; a < game.sideLength; a++)
+            for (a = 0; a < game.SideLength; a++)
             {
-                for (b = 0; b < game.sideLength; b++)
+                for (b = 0; b < game.SideLength; b++)
                 {
                     Console.Write(game[a, b] + "\t");
                 }
@@ -37,29 +37,25 @@ namespace Tag
         }
        
 
-        public void PrintMenu()
+        private void PrintMenu()
         {
-            Console.WriteLine("Select:" + Environment.NewLine
-                            // + "m: Make step" + Environment.NewLine
-                            + "u: Undo" + Environment.NewLine
-                            + "y: Redo" + Environment.NewLine
-                            + "h: Print history" + Environment.NewLine
+            Console.WriteLine("Select:" + Environment.NewLine                                                 
                             + "r: Shuffle the field" + Environment.NewLine
                             + "q: Quit" + Environment.NewLine);
         }
 
-        public  void RefreshScreen(Game3 game)
+        private void RefreshScreen()
         {
             Console.Clear();
             Console.SetCursorPosition(0, 0);
-            Printer.PrintMenu();
-            Printer.PrintBoard(game);
+            PrintMenu();
+            PrintBoard();
         }
 
         public void Play()
         {
-            c.PrintMenu();
-            c.PrintBoard();
+            PrintMenu();
+            PrintBoard();
             while (!game.IsCompleted())
             {
                 try
@@ -68,27 +64,17 @@ namespace Tag
                     string s = Console.ReadLine();
                     switch (s)
                     {
-                        case "u":
-                            game.Undo();
-                            Printer.RefreshScreen(game);
-                            break;
-                        case "y":
-                            game.Redo();
-                            Printer.RefreshScreen(game);
-                            break;
-                        case "h":
-                            Printer.PrintHistory(game);
-                            break;
+                        
                         case "q":
                             tempFlag = false;
                             break;
                         case "r":
                             game.Randomize();
-                            Printer.RefreshScreen(game);
+                            RefreshScreen();
                             break;
                         default:
                             game.Shift(int.Parse(s));
-                            Printer.RefreshScreen(game);
+                            RefreshScreen();
                             break;
                     }
 

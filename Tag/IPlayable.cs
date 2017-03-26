@@ -8,7 +8,7 @@ namespace Tag
 {
     interface IPlayable
     {
-        int sideLength { get; }
+        int SideLength { get; }
         bool IsCompleted();
         void Shift(int value);
         void Randomize();

@@ -15,9 +15,9 @@ namespace Tag
         private List<int> FreezeBoard(int[,] knuckle)
         {
             List<int> oldValues = new List<int>();
-            for (int x = 0; x < sideLength; x++)
+            for (int x = 0; x < SideLength; x++)
             {
-                for (int y = 0; y < sideLength; y++)
+                for (int y = 0; y < SideLength; y++)
                 {
                     oldValues.Add(this[x, y]);
                 }
@@ -59,9 +59,9 @@ namespace Tag
         private bool RandomizeIsCompleted(List<int> oldValues)
         {
             int step = 0;
-            for (int x = 0; x < sideLength; x++)
+            for (int x = 0; x < SideLength; x++)
             {
-                for (int y = 0; y < sideLength; y++)
+                for (int y = 0; y < SideLength; y++)
                 {
                     if (knuckles[x, y] == oldValues[step])
                         return false;
@@ -73,7 +73,7 @@ namespace Tag
 
         protected bool CheckCoordinates(Coordinate coordinate)
         {
-            if (coordinate.x < 0 || coordinate.y < 0 || coordinate.x >= sideLength || coordinate.y >= sideLength)
+            if (coordinate.x < 0 || coordinate.y < 0 || coordinate.x >= SideLength || coordinate.y >= SideLength)
                 return false;
             return true;
         }
@@ -86,10 +86,10 @@ namespace Tag
 
         public bool IsCompleted()
         {
-            int max = sideLength - 1;
+            int max = SideLength - 1;
             int val = 1;
-            for (int x = 0; x < sideLength; x++)
-                for (int y = 0; y < sideLength; y++)
+            for (int x = 0; x < SideLength; x++)
+                for (int y = 0; y < SideLength; y++)
                 {
                     if (x == max && y == max && knuckles[x, y] == 0)
                         return true;

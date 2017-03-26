@@ -22,14 +22,14 @@ namespace Tag
     class Game 
     {
         protected int[,] knuckles;
-        public int sideLength { get; private set; }
+        public int SideLength { get; private set; }
         protected Dictionary<int, Coordinate> dictionaty = new Dictionary<int, Coordinate>();
 
         public Game(params int[] list)
         {
             Validate(list);
-            sideLength = Convert.ToInt32(Math.Sqrt(list.Length));
-            knuckles = new int[sideLength, sideLength];
+            SideLength = Convert.ToInt32(Math.Sqrt(list.Length));
+            knuckles = new int[SideLength, SideLength];
             FillField(list);
         }
 
@@ -48,8 +48,8 @@ namespace Tag
         protected virtual void FillField(int[] values)
         {
             int i = 0;
-            for (int x = 0; x < sideLength; x++)
-                for (int y = 0; y < sideLength; y++)
+            for (int x = 0; x < SideLength; x++)
+                for (int y = 0; y < SideLength; y++)
                 {
                     knuckles[x, y] = values[i];
                     dictionaty.Add(values[i], new Coordinate(x, y));
@@ -61,7 +61,7 @@ namespace Tag
         {
             get
             {
-                if (x >= sideLength || y >= sideLength)
+                if (x >= SideLength || y >= SideLength)
                 {
                     throw new IndexOutOfRangeException();
                 }
