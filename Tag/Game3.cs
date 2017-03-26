@@ -17,7 +17,7 @@ namespace Tag
         }
     }
 
-    class Game3 : Game2
+    class Game3 : Game2, IPlayable
     {
         public List<History> history { get; private set; } = new List<History>();
         int position = -1;

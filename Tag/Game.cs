@@ -19,7 +19,7 @@ namespace Tag
     }
 
 
-    class Game
+    class Game 
     {
         protected int[,] knuckles;
         public int sideLength { get; private set; }

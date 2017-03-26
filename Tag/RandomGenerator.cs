@@ -14,11 +14,6 @@ namespace Tag
             int n = array.Length;
             while (n > 0)
             {   
-                //int k = rng.Next(n--);
-                //T temp = array[n];
-                //array[n] = array[k];
-                //array[k] = temp;
-                
                 int k = rng.Next(n--);
                 int lastY = n % sideLength;
                 int lastX = (n - lastY) / sideLength;

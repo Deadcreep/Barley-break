@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Tag
 {
-    class Game2 : Game
+    class Game2 : Game, IPlayable
     {
         public Game2(params int[] list) : base(list)
         {

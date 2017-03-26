@@ -41,9 +41,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ConsoleuUI.cs" />
     <Compile Include="Game.cs" />
     <Compile Include="Game2.cs" />
     <Compile Include="Game3.cs" />
+    <Compile Include="IPlayable.cs" />
     <Compile Include="Printer.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
